@@ -35,6 +35,7 @@ npm start
 - **Virtual DOM Concepts**: React checks for neccessary DOM updates via a `Virtual DOM`. It creates and compare virtual DOM snapshots to find out which parts of the rendered UI need to be updated.
 - **Rules of hook**:
 - **Creating custom hook**:
+- **Redux toolkit library**:
 
 ## React concepts
 

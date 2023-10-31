@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import CustomModal from "./CustomModal";
 import CartContext from "../stores/Cart-context";
 import { useFetch } from "../hooks/useFetch";
-import CounterComponent from "./Counter";
+import CounterComponent1 from "./Counter1";
+import CounterComponent2 from "./Counter2";
 
 export default function Home() {
   const cartCtx = useContext(CartContext);
@@ -17,7 +18,8 @@ export default function Home() {
 
   return (
     <div className="container my-5 text-center">
-      <CounterComponent/>
+      {/* <CounterComponent1/> */}
+      <CounterComponent2/>
       <hr />
       
       <div className="todos">
