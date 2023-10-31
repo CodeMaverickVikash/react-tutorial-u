@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const {isDarkModeEnabled} = props;
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg ${isDarkModeEnabled ? "navbar-dark bg-dark": "navbar-light bg-light"}`}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Navbar

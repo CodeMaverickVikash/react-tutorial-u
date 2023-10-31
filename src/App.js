@@ -4,27 +4,32 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
+import CartContext from "./stores/Cart-context";
 
 function App() {
+  const [isDarkModeEnabled, setDarkMode] = useState(true);
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route
-          exact
-          path="/"
-          render={() => {
-            return <Home />;
-          }}
-        ></Route>
-      </Switch>
-    </Router>
+    <CartContext.Provider value={{ items: [] }}>
+      <Router>
+        <Navbar isDarkModeEnabled={isDarkModeEnabled} />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return <Home />;
+            }}
+          ></Route>
+        </Switch>
+      </Router>
+    </CartContext.Provider>
   );
 }
 

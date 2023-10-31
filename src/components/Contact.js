@@ -1,13 +1,48 @@
-/*
-    React Context API allows us to easily access data at different levels of the component tree, without passing prop to every level
-    There is three step: 1. createContext 2. provide context 3. consumer
-*/
-import React from "react";
+import React, { useRef, useReducer } from "react";
+
+const counterReducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    default:
+      return state;
+  }
+};
+
+const UseReducerDemoComponent = () => {
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+
+  const increment = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+
+  return (
+    <div className="my-4">
+      <p>Count: {state.count}</p>
+      <button className="btn btn-danger" onClick={increment}>Increment</button>
+    </div>
+  );
+}
 
 export default function Contact() {
+  const emailRef = useRef(); // use case of useRef hook
+  const passwordRef = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const obj = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value
+    }
+    
+    console.log(obj);
+    emailRef.current.value = '';
+    passwordRef.current.value = '';
+  }
+
   return (
     <div className="container my-4 col-6">
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
@@ -17,6 +52,7 @@ export default function Contact() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            ref={emailRef}
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -30,12 +66,15 @@ export default function Contact() {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            ref={passwordRef}
           />
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
+
+      <UseReducerDemoComponent />
     </div>
   );
 }
