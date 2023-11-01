@@ -19,9 +19,9 @@ export default function Home() {
   return (
     <div className="container my-5 text-center">
       {/* <CounterComponent1/> */}
-      <CounterComponent2/>
+      <CounterComponent2 />
       <hr />
-      
+
       <div className="todos">
         {fetchedData.length >= 1 &&
           fetchedData
