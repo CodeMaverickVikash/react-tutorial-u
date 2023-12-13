@@ -1,9 +1,7 @@
 # React learning project
-
 This project will demonstrate the learning of react concepts.
 
-Make react app by using below command:
-
+#### Quick start:
 ```
 npx create-react-app my-app
 cd my-app
