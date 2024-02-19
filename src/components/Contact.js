@@ -1,32 +1,7 @@
-import React, { useRef, useReducer } from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticationActions } from "../stores/redux-store2";
-
-const counterReducer = (state, action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return { count: state.count + 1 };
-    default:
-      return state;
-  }
-};
-
-const UseReducerDemoComponent = () => {
-  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
-
-  const increment = () => {
-    dispatch({ type: "INCREMENT" });
-  };
-
-  return (
-    <div className="my-4">
-      <p>Count: {state.count}</p>
-      <button className="btn btn-danger" onClick={increment}>
-        Increment
-      </button>
-    </div>
-  );
-};
+import UseReducerDemoComponent from "./UseReducerDemoComponent";
 
 export default function Contact() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);

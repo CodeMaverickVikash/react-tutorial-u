@@ -8,7 +8,9 @@ import { useState } from "react";
 import CartContext from "./stores/Cart-context";
 
 function App() {
-  const [isDarkModeEnabled, setDarkMode] = useState(true);
+  const defaultDarkMode = true;
+  const [isDarkModeEnabled, setDarkMode] = useState(defaultDarkMode);
+  
   return (
     <CartContext.Provider value={{ items: [] }}>
       <Router>

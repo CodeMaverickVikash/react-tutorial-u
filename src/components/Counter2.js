@@ -2,7 +2,7 @@ import { counterActions } from "../stores/redux-store2";
 import { useSelector, useDispatch } from "react-redux";
 
 const CounterComponent2 = () => {
-  const count = useSelector((state) => state.counter.count); // use redux store
+  const count = useSelector((state) => state.counter.count); // use slice or redux store
   const dispatch = useDispatch();
 
   const increment = () => {

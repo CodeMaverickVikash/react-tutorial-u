@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import CustomModal from "./CustomModal";
 import CartContext from "../stores/Cart-context";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../custom-hooks/useFetch";
 import CounterComponent1 from "./Counter1";
 import CounterComponent2 from "./Counter2";
 
@@ -12,7 +12,6 @@ export default function Home() {
   const { isFetching, error, fetchedData, setFetchedData } = useFetch({
     url: "https://jsonplaceholder.typicode.com/todos",
   });
-  console.log({ isFetching, error, fetchedData });
 
   console.log(cartCtx);
 
@@ -23,10 +22,13 @@ export default function Home() {
       <hr />
 
       <div className="todos">
-        {fetchedData.length >= 1 &&
+        {isFetching && fetchedData.length === 0 ? (
+          <p>Fetching....</p>
+        ) : (
           fetchedData
             .slice(0, 5)
-            .map((value) => <p key={value.id}>{value.title}</p>)}
+            .map((value) => <p key={value.id}>{value.title}</p>)
+        )}
       </div>
 
       <button
