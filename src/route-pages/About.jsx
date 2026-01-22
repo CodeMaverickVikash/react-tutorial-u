@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 export default function About() {
   const [number, setNumber] = useState(0);
-  const location = useLocation();
+  const location = useLocation(); // return the object containing the information of current URL/path
 
   // useEffect(() => {
   //     alert("I am clicked");

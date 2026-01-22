@@ -1,11 +1,11 @@
 useSate - Component state manage karta hai
 useEffect - Side effects handle karta hai
+useLayoutEffect - DOM paint se pehle run hota hai
 useContext - Global data share (no props drilling)
 useRef - DOM access & mutable values
 useMemo - Expensive calculation memoize
 useCallback - Function memoize
 useReducer - Complex state management
-useLayoutEffect - DOM paint se pehle run hota hai
 useImperativeHandle - Expose methods to parent
 
 ROUTER / LIBRARY HOOKS (daily use)
