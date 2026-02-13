@@ -739,6 +739,7 @@ clearInterval(intervalRef.current);
 - Predictable state transitions
 - Similar to Redux pattern
 - Better for complex state logic
+- They’re mainly about centralizing, structuring, and making state changes predictable.
 
 **Interactive Demos:**
 1. ✅ Simple counter with multiple actions
@@ -789,6 +790,55 @@ const todoReducer = (state, action) => {
   }
 };
 ```
+
+---
+
+### ❌ Why Async is NOT Allowed in Reducers
+
+Reducers must be **pure functions**.
+
+That means:
+
+- ❌ No `async` / `await`
+- ❌ No API calls
+- ❌ No timers
+- ❌ No random values
+- ❌ No side effects
+
+**❌ This is wrong:**
+
+```javascript
+const reducer = async (state, action) => {
+  const res = await fetch("/api/data"); // 🚫 NOT allowed
+  return { ...state, data: await res.json() };
+};
+```
+
+**✅ This is correct:**
+
+```javascript
+// Reducer stays pure
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_DATA':
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
+// Handle async in useEffect instead
+useEffect(() => {
+  const fetchData = async () => {
+    const res = await fetch("/api/data");
+    const data = await res.json();
+    dispatch({ type: 'SET_DATA', payload: data });
+  };
+  fetchData();
+}, []);
+```
+
+---
 
 **useReducer vs useState:**
 | Use useReducer when: | Use useState when: |
