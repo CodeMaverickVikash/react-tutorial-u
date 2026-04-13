@@ -2,7 +2,7 @@
 
 ## Core Concepts
 
-- **JSX (JavaScript XML)** - JavaScript syntax extension that allows you to write HTML-like code in JavaScript files.
+- **JSX (JavaScript XML)** - JavaScript syntax extension that allows you to write HTML-like code in JavaScript files.2changes
 
 - **Props (Properties)** - Parent to child communication (single level).
 
