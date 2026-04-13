@@ -414,8 +414,8 @@ const location = useLocation();
                      PERFORMANCE TIPS
 
 1. Measure first with React DevTools Profiler
-2. React.memo   -> prevent child re-renders
-3. useMemo      -> memoize expensive calculations
+2. React.memo   -> prevent child re-renders, for example - you have used child comp in parent comp when any state of parent change, child rerender, to prevent this we use React.memo in child component, this only re-render when it's prop change.
+3. useMemo      -> memoize expensive calculations - you have expensive calculation on variable or in a function, when you update any state of component, re-render comp and it's content, so expensive also re-run, instead you can wrap expensive logic in useMemo and let him decide when this will run similar to useEffect dependency array.
 4. useCallback  -> memoize function props
 5. Keep state close to where it's used
 6. Split Context by update frequency
