@@ -6,7 +6,7 @@
 
 - **Props (Properties)** - Parent to child communication (single level).
 
-- **State** - Component's own data that can be changed. State changes trigger re-renders.
+- **State** - Component's own data that can be changed. State changes trigger re-renders.2changes
 
 - **Conditional Rendering** - Render different UI based on conditions using conditional statements or ternary operators.
 
